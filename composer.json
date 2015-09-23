@@ -1,10 +1,13 @@
 {
-  "name": "drupal/drupal",
+  "name": "webflo/drupal",
   "description": "Drupal is an open source content management platform powering millions of websites and applications.",
   "type": "project",
   "license": "GPL-2.0+",
   "require": {
     "composer/installers": "^1.0.21",
+    "wikimedia/composer-merge-plugin": "dev-master"
+  },
+  "replace": {
     "drupal/core": "~8.0"
   },
   "minimum-stability": "dev",
@@ -17,6 +20,21 @@
     "_readme": [
       "By default Drupal loads the autoloader from ./core/vendor/autoload.php.",
       "To change the autoloader you can edit ./autoload.php."
-    ]
-  }
+    ],
+    "merge-plugin": {
+      "include": [
+        "core/composer.json"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/webflo/composer-merge-plugin"
+    },
+    {
+      "type": "composer",
+      "url": "https://packagist.drupal-composer.org"
+    }
+  ]
 }
